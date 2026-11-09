@@ -749,6 +749,27 @@
   margin-top: 26px;
   flex-wrap: wrap;
 }
+.contactPhone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  color: #667085;
+  font-size: 0.95rem;
+}
+
+.contactPhone a {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+  direction: ltr;
+}
+
+.contactPhone a:hover {
+  color: #7c3aed;
+}
+
 
 /* =========================
    Experience
@@ -899,15 +920,75 @@
   }
 
   .hero {
-    min-height: 88vh;
+    min-height: auto;
+    padding: 55px 0 40px;
+  }
+
+  .heroBadge {
+    font-size: 0.68rem;
+    padding: 7px 13px;
+  }
+
+  .avatar {
+    width: 105px;
+    height: 105px;
+    margin-top: 22px;
   }
 
   .hero h1 {
-    letter-spacing: -1px;
+    font-size: clamp(1.8rem, 7vw, 2.3rem);
+    line-height: 1.4;
+    letter-spacing: 0;
+    margin-top: 22px;
   }
 
   .heroText {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.9;
+    margin-top: 18px;
+    padding: 0 5px;
+  }
+
+  .heroInfo {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 24px;
+    box-sizing: border-box;
+  }
+
+  .heroInfo div {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 13px 18px;
+  }
+
+  .heroInfo div + div {
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid #e7eaf1;
+  }
+
+  .page[dir="rtl"] .heroInfo div + div {
+    border-right: 0;
+  }
+
+  .heroButtons {
+    width: 100%;
+    max-width: 320px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 25px;
+  }
+
+  .heroButtons a {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .heroLine {
+    margin-top: 35px;
   }
 
   .skillsGrid {
@@ -953,3 +1034,5 @@
     display: none;
   }
 }
+
+

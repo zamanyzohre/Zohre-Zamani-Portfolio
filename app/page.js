@@ -24,7 +24,6 @@ const skills = [
   { name: "Vite", icon: "V" },
 ];
 
-
 const projects = [
   {
     title: "Real Estate CRM",
@@ -58,6 +57,7 @@ const projects = [
 
     features: [
       "Property & file management",
+      "Advanced property search and filtering by property code, owner name, property type, transaction type, status, property location, minimum price, and maximum price.",
       "Owner & customer management",
       "Search by name, family name & mobile number",
       "Quick access to phone contacts",
@@ -75,13 +75,14 @@ const projects = [
 
     featuresFa: [
       "مدیریت املاک و فایل‌ها",
+      " جستجوی پیشرفته و فیلتر هوشمند فایل‌های ملکی بر اساس کد ملک، نام مالک، نوع ملک، نوع معامله، وضعیت، محدوده جغرافیایی و بازه قیمت ",
       "مدیریت مالکان و مشتریان",
       "جستجو بر اساس نام، نام خانوادگی و شماره همراه",
       "دسترسی سریع به دفترچه تلفن",
       "تماس و ارسال پیامک مستقیم برای مالک و مشتری",
       "تطبیق دوطرفه فایل و درخواست مشتری",
       "مدیریت هماهنگی‌ها و پیگیری‌ها",
-      "مدیریت قرارداد و یادآوری تمدید حدود ۴۵ روز قبل از پایان قرارداد",
+      "مدیریت قرارداد و یادآوری تمدید ۴۵ روز قبل از پایان قرارداد",
       "مدیریت یادداشت‌ها و یادآوری‌های روزانه",
       "آپلود، حذف و اشتراک‌گذاری تصاویر ملک",
       "نمایش تصاویر به صورت Carousel و تمام‌صفحه",
@@ -155,11 +156,9 @@ const projects = [
       "مدیریت مسیرها و صفحات مختلف برنامه",
     ],
 
-    github:
-      "https://github.com/zamanyzohre/next-shoping-project",
+    github: "https://github.com/zamanyzohre/next-shoping-project",
 
-    demo:
-      "https://next-shoping-project.vercel.app",
+    demo: "https://next-shoping-project.vercel.app",
   },
 
   {
@@ -230,11 +229,9 @@ const projects = [
       "Lazy Loading و بهینه‌سازی عملکرد",
     ],
 
-    github:
-      "https://github.com/zamanyzohre/next-admin-panel",
+    github: "https://github.com/zamanyzohre/next-admin-panel",
 
-    demo:
-      "https://next-admin-panel-one.vercel.app",
+    demo: "https://next-admin-panel-one.vercel.app",
   },
 ];
 
@@ -263,7 +260,9 @@ export default function Home() {
 
           <a href="#contact">{isFa ? "تماس" : "Contact"}</a>
 
-          <a href="#other-projects">{isFa ? "پروژه‌های کوچک" : "Mini Projects"}</a>
+          <a href="#other-projects">
+            {isFa ? "پروژه‌های کوچک" : "Mini Projects"}
+          </a>
         </div>
 
         <div className="languageSwitch">
@@ -500,71 +499,68 @@ export default function Home() {
 
                 {project.features && (
                   <div className="featuresList">
-                    {(isFa ? project.featuresFa : project.features).map((feature) => (
-                      <div key={feature} className="featureItem">
-                        <span>✓</span>
+                    {(isFa ? project.featuresFa : project.features).map(
+                      (feature) => (
+                        <div key={feature} className="featureItem">
+                          <span>✓</span>
 
-                        {isFa
-                          ? {
-                              "Property & owner management":
-                                "مدیریت املاک و مالکان",
+                          {isFa
+                            ? {
+                                "Property & owner management":
+                                  "مدیریت املاک و مالکان",
 
-                              "Customer request management":
-                                "مدیریت درخواست مشتریان",
+                                "Customer request management":
+                                  "مدیریت درخواست مشتریان",
 
-                              "Two-way property matching":
-                                "تطبیق دوطرفه ملک و درخواست",
+                                "Two-way property matching":
+                                  "تطبیق دوطرفه ملک و درخواست",
 
-                              "Follow-up & coordination":
-                                "مدیریت پیگیری و هماهنگی",
+                                "Follow-up & coordination":
+                                  "مدیریت پیگیری و هماهنگی",
 
-                              "Contract management": "مدیریت قراردادها",
+                                "Contract management": "مدیریت قراردادها",
 
-                              "Daily notes & reminders":
-                                "یادداشت و یادآوری روزانه",
+                                "Daily notes & reminders":
+                                  "یادداشت و یادآوری روزانه",
 
-                              "Authentication & user management":
-                                "احراز هویت و مدیریت کاربران",
+                                "Authentication & user management":
+                                  "احراز هویت و مدیریت کاربران",
 
-                              "Responsive UI & PWA":
-                                "رابط کاربری واکنش‌گرا و PWA",
-                            }[feature] || feature
-                          : feature}
-                      </div>
-                    ))}
+                                "Responsive UI & PWA":
+                                  "رابط کاربری واکنش‌گرا و PWA",
+                              }[feature] || feature
+                            : feature}
+                        </div>
+                      ),
+                    )}
                   </div>
                 )}
 
-               
-              <div className="projectLinks">
+                <div className="projectLinks">
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {isFa ? "گیت‌هاب ↗" : "GitHub ↗"}
+                    </a>
+                  ) : (
+                    <span className="privateProject">
+                      🔒 {isFa ? "مخزن خصوصی" : "Private Repository"}
+                    </span>
+                  )}
 
-                {project.github ? (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {isFa ? "گیت‌هاب ↗" : "GitHub ↗"}
-                  </a>
-                ) : (
-                  <span className="privateProject">
-                    🔒 {isFa ? "مخزن خصوصی" : "Private Repository"}
-                  </span>
-                )}
-
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {isFa ? "نمایش آنلاین ↗" : "Live Demo ↗"}
-                  </a>
-                )}
-
-              </div>
-
-
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {isFa ? "نمایش آنلاین ↗" : "Live Demo ↗"}
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}
@@ -754,15 +750,21 @@ export default function Home() {
         <div className="contactCard">
           <div className="sectionTitle">
             <span>07</span>
-
             <h2>{isFa ? "ارتباط با من" : "Let’s Connect"}</h2>
           </div>
 
           <p>
             {isFa
-              ? "برای ارتباط و همکاری می‌توانید از طریق GitHub یا ایمیل با من در تماس باشید."
-              : "Feel free to connect with me through GitHub or email."}
+              ? "برای ارتباط، همکاری و دریافت اطلاعات بیشتر می‌توانید از راه‌های زیر با من در تماس باشید."
+              : "Feel free to contact me for collaboration or further information."}
           </p>
+
+          <div className="contactPhone">
+            <span>{isFa ? "شماره موبایل:" : "Mobile:"}</span>
+            <a href="tel:+989114759731" dir="ltr">
+              09114759731
+            </a>
+          </div>
 
           <div className="contactButtons">
             <a
@@ -775,7 +777,29 @@ export default function Home() {
             </a>
 
             <a href="mailto:zozotiktak@gmail.com" className="secondaryButton">
-              {isFa ? "ایمیل" : "Email Me"}
+              {isFa ? "ایمیل" : "Email"}
+            </a>
+
+            <a
+              href="https://wa.me/989114759731"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="secondaryButton"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href="https://t.me/ZohreZamany"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="secondaryButton"
+            >
+              Telegram
+            </a>
+
+            <a href="tel:+989114759731" className="secondaryButton">
+              {isFa ? "تماس با من" : "Call Me"}
             </a>
           </div>
         </div>
